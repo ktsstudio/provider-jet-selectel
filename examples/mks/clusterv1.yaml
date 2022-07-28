@@ -1,0 +1,14 @@
+apiVersion: mks.selectel.jet.crossplane.io/v1alpha1
+kind: ClusterV1
+metadata:
+  name: devopsdemo
+  annotations:
+    crossplane.io/external-name: "8c9a9f8c-255a-42fc-98be-a68d5df1ee4c"
+spec:
+  forProvider:
+    zonal: true
+    projectId: eccc2dbaf5b7405e9991fdc4f397f32f
+    region: ru-2
+    kubeVersion: 1.22.9
+  providerConfigRef:
+    name: default
