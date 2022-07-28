@@ -58,8 +58,15 @@ type ClusterV1Parameters struct {
 	// +kubebuilder:validation:Optional
 	MaintenanceWindowStart *string `json:"maintenanceWindowStart,omitempty" tf:"maintenance_window_start,omitempty"`
 
+	// +crossplane:generate:reference:type=github.com/ktsstudio/provider-jet-selectel/apis/mks/v1alpha1.ClusterV1
 	// +kubebuilder:validation:Optional
 	NetworkID *string `json:"networkId,omitempty" tf:"network_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	NetworkIDRef *v1.Reference `json:"networkIdRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	NetworkIDSelector *v1.Selector `json:"networkIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	ProjectID *string `json:"projectId" tf:"project_id,omitempty"`

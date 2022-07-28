@@ -19,11 +19,10 @@ package config
 import (
 	// Note(turkenh): we are importing this to embed provider schema document
 	_ "embed"
+	"github.com/ktsstudio/provider-jet-selectel/config/mks"
 
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-
-	"github.com/ktsstudio/provider-jet-selectel/config/null"
 )
 
 const (
@@ -48,7 +47,7 @@ func GetProvider() *tjconfig.Provider {
 
 	for _, configure := range []func(provider *tjconfig.Provider){
 		// add custom config functions
-		null.Configure,
+		mks.Configure,
 	} {
 		configure(pc)
 	}

@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package null
+package mks
 
 import (
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
@@ -22,7 +22,10 @@ import (
 
 // Configure configures the null group
 func Configure(p *tjconfig.Provider) {
-	p.AddResourceConfigurator("null_resource", func(r *tjconfig.Resource) {
-		r.ExternalName = tjconfig.IdentifierFromProvider
+	p.AddResourceConfigurator("selectel_mks_cluster_v1", func(r *tjconfig.Resource) {
+		//r.ExternalName = tjconfig.IdentifierFromProvider
+		r.References["network_id"] = tjconfig.Reference{
+			Type: "github.com/ktsstudio/provider-jet-selectel/apis/mks/v1alpha1.ClusterV1",
+		}
 	})
 }
